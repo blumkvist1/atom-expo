@@ -8,6 +8,7 @@ import ExcursionsScreen from "./pages/ExcursionsScreen";
 import FavoriteScreen from "./pages/FavoriteScreen";
 import FreeWalkScreen from "./pages/FreeWalkScreen";
 import ProfileScreen from "./pages/ProfileScreen";
+import HomeSreen from "./pages/HomeSreen";
 
 const Tab = createBottomTabNavigator();
 
@@ -15,7 +16,7 @@ export default function App() {
    return (
       <NavigationContainer>
          <Tab.Navigator
-            initialRouteName="Профиль"
+            initialRouteName="Экскурсии"
             screenOptions={({ route }) => ({
                tabBarIcon: ({ focused, color, size }) => {
                   let iconName;
@@ -36,9 +37,10 @@ export default function App() {
                tabBarActiveTintColor: "tomato",
                tabBarInactiveTintColor: "gray",
             })}
+				
          >
             <Tab.Screen name="Карта" component={FreeWalkScreen} />
-            <Tab.Screen name="Экскурсии" component={ExcursionsScreen} />
+            <Tab.Screen name="Экскурсии" component={HomeSreen} />
             <Tab.Screen name="Избранное" component={FavoriteScreen} />
             <Tab.Screen name="Профиль" component={ProfileScreen} />
          </Tab.Navigator>
