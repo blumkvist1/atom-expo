@@ -1,8 +1,11 @@
 import * as React from "react";
 import { Image, View, Text, TouchableOpacity, ScrollView } from "react-native";
 import Ionicons from "@expo/vector-icons/Ionicons";
+import { createStackNavigator } from "@react-navigation/stack";
 
-export default function ProfileScreen() {
+const ProfileStack = createStackNavigator();
+
+function Profile() {
    return (
       <View
          style={{
@@ -219,5 +222,29 @@ export default function ProfileScreen() {
             </View>
          </ScrollView>
       </View>
+   );
+}
+
+export default function ProfileScreen({ navigation }) {
+   return (
+      <ProfileStack.Navigator
+         screenOptions={{
+            headerRight: () => (
+               <Ionicons
+                  onPress={() => navigation.openDrawer()}
+                  color="#00cc00"
+                  name="menu"
+                  size={38}
+                  style={{ marginRight: 10 }}
+               />
+            ),
+         }}
+      >
+         <ProfileStack.Screen
+            name="Профиль"
+            component={Profile}
+            options={{ tabBarLabel: "Settings!" }}
+         />
+      </ProfileStack.Navigator>
    );
 }

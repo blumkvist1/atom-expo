@@ -8,7 +8,12 @@ const CardEx = () => {
    const route = useRoute();
    console.log(route);
    return (
-      <TouchableOpacity activeOpacity={0.8} onPress={()=>{navigation.push("Screen2");}}>
+      <TouchableOpacity
+         activeOpacity={0.8}
+         onPress={() => {
+            navigation.push("ExcursionScreen");
+         }}
+      >
          <View
             style={{
                backgroundColor: "green",

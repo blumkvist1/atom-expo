@@ -1,49 +1,41 @@
+import "react-native-gesture-handler";
 import * as React from "react";
-import { Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
-import Ionicons from "react-native-vector-icons/Ionicons";
-import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import { createDrawerNavigator } from "@react-navigation/drawer";
+import { useWindowDimensions, Button } from "react-native";
+import { Ionicons } from "@expo/vector-icons";
+import { useNavigation, useRoute } from "@react-navigation/native";
 
-import ExcursionsScreen from "./pages/ExcursionsScreen";
-import FavoriteScreen from "./pages/FavoriteScreen";
-import FreeWalkScreen from "./pages/FreeWalkScreen";
-import ProfileScreen from "./pages/ProfileScreen";
 import HomeSreen from "./pages/HomeSreen";
-
-const Tab = createBottomTabNavigator();
+import ProfileScreen from "./pages/ProfileScreen";
+const Drawer = createDrawerNavigator();
 
 export default function App() {
+   const dimensions = useWindowDimensions();
+   // const navigation = useNavigation();
+
    return (
       <NavigationContainer>
-         <Tab.Navigator
-            initialRouteName="Экскурсии"
-            screenOptions={({ route }) => ({
-               tabBarIcon: ({ focused, color, size }) => {
-                  let iconName;
-
-                  if (route.name === "Экскурсии") {
-                     iconName = focused ? "home" : "home-outline";
-                  } else if (route.name === "Избранное") {
-                     iconName = focused ? "book" : "book-outline";
-                  } else if (route.name === "Карта") {
-                     iconName = focused ? "earth" : "earth-outline";
-                  } else {
-                     iconName = focused ? "person" : "person-outline";
-                  }
-
-                  // You can return any component that you like here!
-                  return <Ionicons name={iconName} size={size} color={color} />;
+         <Drawer.Navigator
+            useLegacyImplementation
+            screenOptions={{
+               drawerStyle: {
+                  width: 240,
                },
-               tabBarActiveTintColor: "tomato",
-               tabBarInactiveTintColor: "gray",
-            })}
-				
+               drawerPosition: "right",
+            }}
          >
-            <Tab.Screen name="Карта" component={FreeWalkScreen} />
-            <Tab.Screen name="Экскурсии" component={HomeSreen} />
-            <Tab.Screen name="Избранное" component={FavoriteScreen} />
-            <Tab.Screen name="Профиль" component={ProfileScreen} />
-         </Tab.Navigator>
+            <Drawer.Screen
+               name="Главная"
+               component={HomeSreen}
+               options={{ headerShown: false }}
+            />
+            <Drawer.Screen
+               name="Профиль"
+               options={{ headerShown: false }}
+               component={ProfileScreen}
+            />
+         </Drawer.Navigator>
       </NavigationContainer>
    );
 }
