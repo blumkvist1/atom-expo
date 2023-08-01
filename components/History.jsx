@@ -1,16 +1,65 @@
 import React from "react";
-import { View } from "react-native";
+import { TouchableOpacity } from "react-native";
+import { Touchable } from "react-native";
+let BlueAtom1 = require("../assets/BlueAtom1.png");
+import { ImageBackground } from "react-native";
+import { View, Image, Text } from "react-native";
 
 const History = () => {
    return (
-      <View
-         style={{
-            backgroundColor: "green",
-            width: 120,
-            height: 140,
-            margin: 5,
-         }}
-      ></View>
+      <TouchableOpacity>
+         <View
+            style={{
+               backgroundColor: "white",
+               width: 136,
+               height: 139,
+               margin: 10,
+               borderRadius: 33,
+               borderWidth: 2,
+               borderColor: "gray",
+               display: "flex",
+               justifyContent: "center",
+               alignItems: "center",
+            }}
+         >
+            <View
+               style={{
+                  backgroundColor: "gray",
+                  width: 125,
+                  height: 128.41,
+                  borderRadius: 30,
+
+                  position: "relative",
+               }}
+            >
+               <Image
+                  style={{
+                     position: "absolute",
+                     bottom: 5,
+                     left: 5,
+                     width: 110,
+                     height: 73,
+                  }}
+                  source={BlueAtom1}
+               />
+               <Text
+                  style={{
+                     fontFamily: "Inter",
+                     fontSize: 18,
+                     fontWeight: "bold",
+                     marginTop: 12,
+                     marginLeft: 10,
+                     width: 116,
+                     height: 129,
+                     zIndex: 9,
+                     color: "white",
+                  }}
+               >
+                  ОТ КРЕМЛЯ И ОБРАТНО
+               </Text>
+            </View>
+         </View>
+      </TouchableOpacity>
    );
 };
 
