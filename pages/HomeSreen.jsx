@@ -1,4 +1,4 @@
-import React, {useState} from "react";
+import React, { useState } from "react";
 import {
    Text,
    View,
@@ -15,17 +15,13 @@ import { vw, vh } from "react-native-expo-viewport-units";
 import { Ionicons } from "@expo/vector-icons";
 import { useNavigation, useRoute } from "@react-navigation/native";
 import History from "../components/History";
-import CardEx from "../components/CardEx";
 import { createStackNavigator } from "@react-navigation/stack";
 import { SafeAreaView } from "react-native-safe-area-context";
-import {
-   SafeAreaProvider,
-   useSafeAreaInsets,
-} from "react-native-safe-area-context";
+import ExcursionsScreen from "./ExcursionsScreen";
 
 const Root = createStackNavigator();
 
-const FirstScreen = () => {
+const HomePage = () => {
    const navigation = useNavigation();
 
    return (
@@ -66,7 +62,7 @@ const FirstScreen = () => {
                         width: 136,
                         height: 139,
                         margin: 10,
-                        borderRadius: 33,
+                        borderRadius: 10,
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
@@ -99,7 +95,7 @@ const FirstScreen = () => {
                <View
                   style={{
                      //backgroundColor: "orange",
-                     width: "50%",
+                     width: "51%",
                      height: 330,
                      display: "flex",
                      justifyContent: "space-between",
@@ -114,7 +110,7 @@ const FirstScreen = () => {
                   >
                      <TouchableOpacity>
                         <ImageBackground
-                           source={require("../assets/KeyBcg.png")}
+                           source={require("../assets/FreeRideBcg.png")}
                            style={{
                               width: "103%",
                               height: 160,
@@ -143,13 +139,13 @@ const FirstScreen = () => {
                               >
                                  <Text
                                     style={{
-                                       color: "white",
+                                       color: "#3E3E3E",
                                        fontSize: 28,
-                                       width: 180,
+                                       width: 220,
                                        fontWeight: "bold",
                                     }}
                                  >
-                                    Ключевые точки
+                                    Свободный режим поездки
                                  </Text>
                                  <Text
                                     style={{
@@ -160,8 +156,8 @@ const FirstScreen = () => {
                                        color: "gray",
                                     }}
                                  >
-                                    Режим{"\n"}самостоятельного изучения
-                                    достопримечательностей
+                                    Вы едете по своим делам, {"\n"}а мы
+                                    расскажем об интересных местах на вашем пути
                                  </Text>
                               </View>
                               <Image
@@ -244,7 +240,7 @@ const FirstScreen = () => {
                      style={{
                         width: "100%",
                         height: 330,
-                        marginLeft: 20,
+                        marginLeft: 10,
                      }}
                   >
                      <ImageBackground
@@ -295,8 +291,6 @@ const FirstScreen = () => {
                                  width: 270,
                                  height: "95%",
                                  top: 30,
-
-                                 //backgroundColor: "white",
                               }}
                               resizeMode="contain"
                            ></Image>
@@ -310,236 +304,15 @@ const FirstScreen = () => {
    );
 };
 
-export const Header = () => {
-   const navigation = useNavigation();
-   return (
-      <View
-         style={{
-            marginTop: 10,
-            width: "100%",
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexDirection: "row",
-         }}
-      >
-         <TouchableOpacity onPress={() => navigation.goBack()}>
-            <Image
-               source={require("../assets/BackArrow.png")}
-               style={{
-                  width: 160,
-                  height: 80,
-               }}
-               resizeMode="stretch"
-               onPress={() => navigation.goBack()}
-            ></Image>
-         </TouchableOpacity>
-         <Image
-            source={require("../assets/ExHeader.png")}
-            style={{
-               width: 600,
-               height: 80,
-            }}
-            resizeMode="contain"
-         ></Image>
-         <TouchableOpacity onPress={() => navigation.openDrawer()}>
-            <Image
-               source={require("../assets/MenuEx.png")}
-               style={{
-                  width: 160,
-                  height: 80,
-               }}
-               resizeMode="stretch"
-               onPress={() => navigation.openDrawer()}
-            ></Image>
-         </TouchableOpacity>
-      </View>
-   );
-};
 
-export const ExcursionsScreen = () => {
-   const insets = useSafeAreaInsets();
-	const [modalVisible, setModalVisible] = useState(false);
-   return (
-      <View
-         style={{
-            flex: 1,
-            justifyContent: "flex-start",
-            alignItems: "center",
-            backgroundColor: "#009999",
 
-            // Paddings to handle safe area
-            paddingTop: insets.top,
-            paddingBottom: insets.bottom,
-            paddingLeft: insets.left,
-            paddingRight: insets.right,
-         }}
-      >
-         <Header />
-         <View
-            style={{
-               padding: 10,
-               width: "100%",
-               display: "flex",
-               justifyContent: "space-between",
-               alignItems: "center",
-               flexDirection: "row",
-            }}
-         >
-            <TouchableOpacity>
-               <Image
-                  source={require("../assets/SearchField.png")}
-                  style={{
-                     width: 770,
-                     height: 36,
-                  }}
-                  resizeMode="contain"
-               ></Image>
-            </TouchableOpacity>
-            <TouchableOpacity>
-               <Image
-                  source={require("../assets/Filter.png")}
-                  style={{
-                     width: 150,
-                     height: 36,
-                  }}
-                  resizeMode="contain"
-               ></Image>
-            </TouchableOpacity>
-         </View>
-         <ScrollView horizontal style={{ paddingHorizontal: 10 }}>
-            <View style={{ display: "flex", flexDirection: "column" }}>
-               <View
-                  style={{
-                     display: "flex",
-                     flexDirection: "row",
-                     marginBottom: 15,
-                  }}
-               >
-                  <TouchableOpacity
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                     onPress={() => setModalVisible(true)}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-               </View>
-               <View style={{ display: "flex", flexDirection: "row" }}>
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-                  <View
-                     style={{
-                        height: 173,
-                        marginRight: 20,
-                        width: 350,
-                        backgroundColor: "white",
-                        borderRadius: 30,
-                     }}
-                  />
-               </View>
-            </View>
-         </ScrollView>
-         <View style={styles.centeredView}>
-            <Modal
-               animationType="fade"
-               transparent={true}
-               visible={modalVisible}
-               onRequestClose={() => {
-                  Alert.alert("Modal has been closed.");
-                  setModalVisible(!modalVisible);
-               }}
-					
-            >
-               <View style={styles.centeredView}>
-                  <View style={styles.modalView}>
-                     <Text style={styles.modalText}>Hello World!</Text>
-                     <Pressable
-                        style={[styles.button, styles.buttonClose]}
-                        onPress={() => setModalVisible(!modalVisible)}
-                     >
-                        <Text style={styles.textStyle}>Hide Modal</Text>
-                     </Pressable>
-                  </View>
-               </View>
-            </Modal>
-         </View>
-      </View>
-   );
-};
 
 const HomeSreen = ({ navigation }) => {
    return (
-      <Root.Navigator
-      // screenOptions={{
-      //    headerRight: () => (
-      //       <Ionicons
-      //          onPress={() => navigation.openDrawer()}
-      //          color="#00cc00"
-      //          name="menu"
-      //          size={38}
-      //          style={{ marginRight: 10 }}
-      //       />
-      //    ),
-      // }}
-      >
+      <Root.Navigator>
          <Root.Screen
-            name="FirstScreen"
-            component={FirstScreen}
+            name="HomePage"
+            component={HomePage}
             options={{ headerShown: false }}
          />
          <Root.Screen
@@ -555,49 +328,4 @@ const HomeSreen = ({ navigation }) => {
 
 export default HomeSreen;
 
-const styles = StyleSheet.create({
-   centeredView: {
-      flex: 1,
-      justifyContent: "center",
-      alignItems: "center",
-		backgroundColor:"#000000c"
-   },
-   modalView: {
-      margin: 20,
-		width:890,
-		height:490,
-      backgroundColor: "white",
-      borderRadius: 30,
-      padding: 35,
-      alignItems: "center",
-      shadowColor: "#000",
-      shadowOffset: {
-         width: 0,
-         height: 2,
-      },
-      shadowOpacity: 0.25,
-      shadowRadius: 4,
-      elevation: 5,
-   },
-   button: {
-      borderRadius: 20,
-      padding: 10,
-      elevation: 2,
-   },
-   buttonOpen: {
-      backgroundColor: "#F194FF",
-   },
-   buttonClose: {
-      backgroundColor: "#2196F3",
-   },
-   textStyle: {
-      color: "white",
-      fontWeight: "bold",
-      textAlign: "center",
-   },
-   modalText: {
-      marginBottom: 15,
-      textAlign: "center",
-   },
-});
 

@@ -14,7 +14,7 @@ const History = () => {
                width: 136,
                height: 139,
                margin: 10,
-               borderRadius: 33,
+               borderRadius: 10,
                borderWidth: 2,
                borderColor: "gray",
                display: "flex",
@@ -27,7 +27,7 @@ const History = () => {
                   backgroundColor: "gray",
                   width: 125,
                   height: 128.41,
-                  borderRadius: 30,
+                  borderRadius: 10,
 
                   position: "relative",
                }}
