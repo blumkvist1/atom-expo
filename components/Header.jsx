@@ -20,8 +20,8 @@ const Header = () => {
             <Image
                source={require("../assets/BackArrow.png")}
                style={{
-                  width: 160,
-                  height: 60,
+                  width: 170,
+                  height: 70,
                }}
                //resizeMode="contain"
                onPress={() => navigation.goBack()}
@@ -30,8 +30,8 @@ const Header = () => {
          <Image
             source={require("../assets/ExHeader.png")}
             style={{
-               width: 620,
-               height: 60,
+               width: 660,
+               height: 70,
             }}
             //resizeMode="contain"
          ></Image>
@@ -39,8 +39,8 @@ const Header = () => {
             <Image
                source={require("../assets/MenuEx.png")}
                style={{
-                  width: 160,
-                  height: 60,
+                  width: 170,
+                  height: 70,
                }}
                //resizeMode="stretch"
                onPress={() => navigation.openDrawer()}

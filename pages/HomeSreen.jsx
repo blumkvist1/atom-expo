@@ -59,8 +59,8 @@ const HomePage = () => {
                   <View
                      style={{
                         backgroundColor: "white",
-                        width: 136,
-                        height: 139,
+                        width: 168,
+                        height: 169,
                         margin: 10,
                         borderRadius: 10,
                         display: "flex",
@@ -72,10 +72,16 @@ const HomePage = () => {
                   >
                      <Image
                         source={require("../assets/Menu.png")}
-                        style={{ width: 60, height: 64 }}
+                        style={{ width: 75, height: 85 }}
+                        resizeMode="contain"
                      />
                      <Text
-                        style={{ marginTop: 7, fontSize: 20, color: "#009999" }}
+                        style={{
+                           marginTop: 7,
+                           fontWeight: "500",
+                           fontSize: 22,
+                           color: "#009999",
+                        }}
                      >
                         Меню
                      </Text>
@@ -94,9 +100,8 @@ const HomePage = () => {
             >
                <View
                   style={{
-                     //backgroundColor: "orange",
-                     width: "51%",
-                     height: 330,
+                     width: "45%",
+                     height: 440,
                      display: "flex",
                      justifyContent: "space-between",
                      alignItems: "flex-start",
@@ -113,7 +118,7 @@ const HomePage = () => {
                            source={require("../assets/FreeRideBcg.png")}
                            style={{
                               width: "103%",
-                              height: 160,
+                              height: 212,
                               position: "relative",
                               paddingLeft: 30,
                               paddingTop: 12,
@@ -140,16 +145,18 @@ const HomePage = () => {
                                  <Text
                                     style={{
                                        color: "#3E3E3E",
-                                       fontSize: 28,
-                                       width: 220,
+                                       fontSize: 40,
+                                       width: 340,
                                        fontWeight: "bold",
+                                       marginBottom: 15,
+                                       marginTop: 5,
                                     }}
                                  >
-                                    Свободный режим поездки
+                                    Свободный {"\n"}режим поездки
                                  </Text>
                                  <Text
                                     style={{
-                                       fontSize: 16,
+                                       fontSize: 20,
                                        width: 280,
                                        zIndex: 9,
                                        fontWeight: "bold",
@@ -174,7 +181,7 @@ const HomePage = () => {
                   </View>
                   <View
                      style={{
-                        height: 160,
+                        // height: 160,
 
                         width: "100%",
                      }}
@@ -183,8 +190,8 @@ const HomePage = () => {
                         <ImageBackground
                            source={require("../assets/NightAziat.png")}
                            style={{
-                              width: "103%",
-                              height: 160,
+                              width: "102.5%",
+                              height: 212,
                               position: "relative",
                               paddingLeft: 25,
                               paddingTop: 15,
@@ -196,7 +203,7 @@ const HomePage = () => {
                            <View
                               style={{
                                  display: "flex",
-                                 justifyContent: "flex-start",
+                                 justifyContent: "space-between",
                                  alignItems: "flex-end",
                                  flexDirection: "column",
                                  paddingRight: 40,
@@ -205,17 +212,19 @@ const HomePage = () => {
                               <Text
                                  style={{
                                     color: "white",
-                                    fontSize: 30,
+                                    fontSize: 40,
                                     width: 180,
                                     fontWeight: "bold",
                                     textAlign: "right",
+                                    marginTop: 5,
+                                    marginBottom: 15,
                                  }}
                               >
                                  Ночной самурай
                               </Text>
                               <Text
                                  style={{
-                                    fontSize: 20,
+                                    fontSize: 24,
                                     width: 180,
                                     zIndex: 9,
                                     fontWeight: "bold",
@@ -231,7 +240,7 @@ const HomePage = () => {
                   </View>
                </View>
                <TouchableOpacity
-                  style={{ width: "50%" }}
+                  style={{ width: "54%" }}
                   onPress={() => {
                      navigation.push("ExcursionsScreen");
                   }}
@@ -239,23 +248,25 @@ const HomePage = () => {
                   <View
                      style={{
                         width: "100%",
-                        height: 330,
+                        height: 440,
                         marginLeft: 10,
                      }}
                   >
                      <ImageBackground
                         source={require("../assets/BackGroundHomeCard.png")}
                         style={{
-                           width: "100%",
-                           height: 330,
+                           width: "101.5%",
+                           height: 440,
                            position: "relative",
-                           paddingLeft: 25,
+                           paddingLeft: 30,
                            paddingTop: 20,
                         }}
+								resizeMode="stretch"
+                     
                      >
                         <Text
                            style={{
-                              fontSize: 45,
+                              fontSize: 65,
                               width: 250,
                               zIndex: 9,
                               fontWeight: "bold",
@@ -266,7 +277,7 @@ const HomePage = () => {
                         </Text>
                         <Text
                            style={{
-                              fontSize: 20,
+                              fontSize: 26,
                               width: 180,
                               zIndex: 9,
                               fontWeight: "bold",
@@ -281,15 +292,16 @@ const HomePage = () => {
                               justifyContent: "flex-end",
                               paddingRight: 10,
                               height: 330,
-                              left: 167.5,
+                              left: 170,
+										top:60,
                               position: "absolute",
                            }}
                         >
                            <Image
                               source={require("../assets/AtomSide1.png")}
                               style={{
-                                 width: 270,
-                                 height: "95%",
+                                 width: 600,
+                                 height: "100%",
                                  top: 30,
                               }}
                               resizeMode="contain"

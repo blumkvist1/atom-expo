@@ -8,6 +8,7 @@ import { useNavigation, useRoute } from "@react-navigation/native";
 
 import HomeSreen from "./pages/HomeSreen";
 import ProfileScreen from "./pages/ProfileScreen";
+
 const Drawer = createDrawerNavigator();
 
 export default function App() {

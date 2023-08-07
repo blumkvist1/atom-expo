@@ -11,8 +11,8 @@ const History = () => {
          <View
             style={{
                backgroundColor: "white",
-               width: 136,
-               height: 139,
+               width: 166,
+               height: 169,
                margin: 10,
                borderRadius: 10,
                borderWidth: 2,
@@ -25,8 +25,8 @@ const History = () => {
             <View
                style={{
                   backgroundColor: "gray",
-                  width: 125,
-                  height: 128.41,
+                  width: 154,
+                  height: 157.41,
                   borderRadius: 10,
 
                   position: "relative",
@@ -37,15 +37,15 @@ const History = () => {
                      position: "absolute",
                      bottom: 5,
                      left: 5,
-                     width: 110,
-                     height: 73,
+                     width: 130,
+                     height: 86,
                   }}
                   source={BlueAtom1}
                />
                <Text
                   style={{
                      fontFamily: "Inter",
-                     fontSize: 18,
+                     fontSize: 22,
                      fontWeight: "bold",
                      marginTop: 12,
                      marginLeft: 10,
